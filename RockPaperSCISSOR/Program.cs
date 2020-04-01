@@ -14,6 +14,11 @@ namespace RockPaperSCISSOR
             Player player2 = new Player("Walid");
             Game game = new Game(100, player1, player2);
 
+            player1.setTurn(TurnType.ROCK);
+            player2.randomTurn();
+            Console.WriteLine(player1.turn);
+            Console.WriteLine(player2.turn);
+
             Console.ReadKey();
         }
     }

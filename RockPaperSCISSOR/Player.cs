@@ -10,9 +10,22 @@ namespace RockPaperSCISSOR
     {
         public string name;
         public int score = 0;
+        public TurnType turn;
+        Random random = new Random();
+
         public Player(string name)
         {
             this.name = name;
+        }
+        public void setTurn(TurnType turn)
+        {
+            this.turn = turn;
+        }
+
+        public void randomTurn()
+        {
+            int randomTurn = random.Next(0, 3);
+            turn = (TurnType)randomTurn;
         }
     }
 }

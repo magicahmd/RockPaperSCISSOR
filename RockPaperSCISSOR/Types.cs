@@ -1,0 +1,1 @@
+﻿public enum TurnType { ROCK, PAPER, SCISSOR };
