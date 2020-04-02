@@ -58,5 +58,17 @@ namespace RockPaperSCISSOR
             }
             Console.WriteLine((TurnType)player1.turn + " " + roundResult + " " + (TurnType)player2.turn);
         }
+        public Player getWinnerPlayer()
+        {
+            if (player1.score == player2.score)
+                return null;
+            return (player1.score > player2.score ? player1 : player2);
+        }
+        public Player getLoserPlayer()
+        {
+            if (player1.score == player2.score)
+                return null;
+            return (player1.score < player2.score ? player1 : player2);
+        }
     }
 }

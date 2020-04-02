@@ -22,6 +22,22 @@ namespace RockPaperSCISSOR
                 game.printRound();
             }
 
+            Player winner = game.getWinnerPlayer();
+            Player loser = game.getLoserPlayer();
+
+            if (winner != null && loser != null)
+            {
+                Console.WriteLine("\nWinner is: " + winner.name + " - score: " + winner.score);
+                Console.WriteLine("Loser is: " + loser.name + " - score: " + loser.score);
+                Console.WriteLine("Ties: " + (game.iterations - winner.score - loser.score));
+            }
+            else
+            {
+                Console.WriteLine("\n" + player1.name + " - score: " + player1.score);
+                Console.WriteLine(player2.name + " - score: " + player2.score);
+                Console.WriteLine("TIE!");
+            }
+
             Console.ReadKey();
         }
     }
