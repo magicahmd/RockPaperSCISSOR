@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperSCISSOR
 {
-    class Game
+    public class Game
     {
         public int iterations;
         public Player player1;
@@ -23,13 +23,13 @@ namespace RockPaperSCISSOR
             this.player1 = player1;
             this.player2 = player2;
         }
-        public bool? checkRoundWinner()
+        public static bool? checkRoundWinner(int player1Turn, int player2Turn)
         {
-            return (chances[(int)player1.turn, (int)player2.turn]);
+            return (chances[player1Turn, player2Turn]);
         }
         public void playRound()
         {
-            switch (checkRoundWinner())
+            switch (checkRoundWinner((int)player1.turn, (int)player2.turn))
             {
                 case true:
                     player1.score++;
@@ -44,7 +44,7 @@ namespace RockPaperSCISSOR
         public void printRound()
         {
             char roundResult;
-            switch (checkRoundWinner())
+            switch (checkRoundWinner((int)player1.turn, (int)player2.turn))
             {
                 case true:
                     roundResult = '>';
