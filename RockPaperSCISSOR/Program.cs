@@ -14,13 +14,7 @@ namespace RockPaperSCISSOR
             Player player2 = new Player("Walid");
             Game game = new Game(100, player1, player2);
 
-            for (int i = 0; i < game.iterations; i++)
-            {
-                player1.randomTurn();
-                player2.setTurn(TurnType.PAPER);
-                game.playRound();
-                game.printRound();
-            }
+            game.playGame();
 
             Player winner = game.getWinnerPlayer();
             Player loser = game.getLoserPlayer();

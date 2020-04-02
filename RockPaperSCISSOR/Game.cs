@@ -27,6 +27,20 @@ namespace RockPaperSCISSOR
         {
             return (chances[player1Turn, player2Turn]);
         }
+
+        public void playGame()
+        {
+            player1.score = 0;
+            player2.score = 0;
+
+            for (int i = 0; i < iterations; i++)
+            {
+                player1.randomTurn();
+                player2.setTurn(TurnType.PAPER);
+                playRound();
+                printRound();
+            }
+        }
         public void playRound()
         {
             switch (checkRoundWinner((int)player1.turn, (int)player2.turn))

@@ -58,13 +58,7 @@ namespace TestRockPaperScissor.UnitTests
             Player player2 = new Player("Walid");
             Game game = new Game(100, player1, player2);
 
-            // Act
-            for (int i = 0; i < game.iterations; i++)
-            {
-                player1.randomTurn();
-                player2.randomTurn();
-                game.playRound();
-            }
+            game.playGame();
 
             var result = game.getWinnerPlayer();
             var winner = player1.score == player2.score ? null : player1.score > player2.score ? player1 : player2;
@@ -83,12 +77,7 @@ namespace TestRockPaperScissor.UnitTests
             Game game = new Game(100, player1, player2);
 
             // Act
-            for (int i = 0; i < game.iterations; i++)
-            {
-                player1.randomTurn();
-                player2.randomTurn();
-                game.playRound();
-            }
+            game.playGame();
 
             var result = game.getLoserPlayer();
             var loser = player1.score == player2.score ? null : player1.score < player2.score ? player1 : player2;
