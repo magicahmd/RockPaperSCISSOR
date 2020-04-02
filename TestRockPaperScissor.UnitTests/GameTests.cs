@@ -48,5 +48,54 @@ namespace TestRockPaperScissor.UnitTests
             Assert.AreEqual(result2, null);
             Assert.AreEqual(result3, null);
         }
+        
+        [TestMethod]
+        public void getWinnerPlayer_higherScoreWins_returnsHigherScorePlayer()
+        {
+            // Arrange
+
+            Player player1 = new Player("Ahmad");
+            Player player2 = new Player("Walid");
+            Game game = new Game(100, player1, player2);
+
+            // Act
+            for (int i = 0; i < game.iterations; i++)
+            {
+                player1.randomTurn();
+                player2.randomTurn();
+                game.playRound();
+            }
+
+            var result = game.getWinnerPlayer();
+            var winner = player1.score == player2.score ? null : player1.score > player2.score ? player1 : player2;
+
+            // Assert
+            Assert.AreEqual(result, winner);
+        }
+        
+        [TestMethod]
+        public void getLoserPlayer_lowerScoreWins_returnslowerScorePlayer()
+        {
+            // Arrange
+
+            Player player1 = new Player("Ahmad");
+            Player player2 = new Player("Walid");
+            Game game = new Game(100, player1, player2);
+
+            // Act
+            for (int i = 0; i < game.iterations; i++)
+            {
+                player1.randomTurn();
+                player2.randomTurn();
+                game.playRound();
+            }
+
+            var result = game.getLoserPlayer();
+            var loser = player1.score == player2.score ? null : player1.score < player2.score ? player1 : player2;
+
+
+            // Assert
+            Assert.AreEqual(result,loser);
+        }
     }
 }
