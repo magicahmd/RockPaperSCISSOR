@@ -34,5 +34,19 @@ namespace TestRockPaperScissor.UnitTests
             Assert.AreEqual(result2, false);
             Assert.AreEqual(result3, false);
         }
+
+        [TestMethod]
+        public void checkRoundWinner_gameTies_returnsNull()
+        {
+            // Act
+            var result1 = Game.checkRoundWinner((int)TurnType.ROCK, (int)TurnType.ROCK);
+            var result2 = Game.checkRoundWinner((int)TurnType.PAPER, (int)TurnType.PAPER);
+            var result3 = Game.checkRoundWinner((int)TurnType.SCISSOR, (int)TurnType.SCISSOR);
+
+            // Assert
+            Assert.AreEqual(result1, null);
+            Assert.AreEqual(result2, null);
+            Assert.AreEqual(result3, null);
+        }
     }
 }
