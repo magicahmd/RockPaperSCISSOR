@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RockPaperSCISSOR;
+using RockPaperScissor;
 
 namespace TestRockPaperScissor.UnitTests
 {
@@ -81,7 +81,6 @@ namespace TestRockPaperScissor.UnitTests
 
             var result = game.getLoserPlayer();
             var loser = player1.score == player2.score ? null : player1.score < player2.score ? player1 : player2;
-
 
             // Assert
             Assert.AreEqual(result,loser);
